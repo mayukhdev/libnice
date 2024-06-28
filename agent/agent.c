@@ -1316,6 +1316,9 @@ nice_agent_init (NiceAgent *agent)
   agent->rng = nice_rng_new ();
   priv_generate_tie_breaker (agent);
 
+  // set the default tie-breaker to always be controlling
+  agent->tie_breaker = UINT64_MAX;
+
   g_queue_init (&agent->pending_signals);
 
   g_mutex_init (&agent->agent_mutex);
